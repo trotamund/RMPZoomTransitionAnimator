@@ -29,7 +29,7 @@
 
 #pragma mark <RMPZoomTransitionAnimating>
 
-- (UIImageView *)transitionSourceImageView
+- (UIView *)transitionSourceView
 {
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     ImageTableViewCell *cell = (ImageTableViewCell *)[self.tableView cellForRowAtIndexPath:selectedIndexPath];
@@ -49,7 +49,7 @@
     return self.tableView.backgroundColor;
 }
 
-- (CGRect)transitionDestinationImageViewFrame
+- (CGRect)transitionDestinationViewFrame
 {
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     ImageTableViewCell *cell = (ImageTableViewCell *)[self.tableView cellForRowAtIndexPath:selectedIndexPath];

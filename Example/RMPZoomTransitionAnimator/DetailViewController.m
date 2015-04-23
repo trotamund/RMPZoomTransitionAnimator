@@ -45,7 +45,7 @@
 
 #pragma mark - <RMPZoomTransitionAnimating>
 
-- (UIImageView *)transitionSourceImageView
+- (UIView *)transitionSourceView
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:self.mainImageView.image];
     imageView.contentMode = self.mainImageView.contentMode;
@@ -60,7 +60,7 @@
     return self.view.backgroundColor;
 }
 
-- (CGRect)transitionDestinationImageViewFrame
+- (CGRect)transitionDestinationViewFrame
 {
     return self.mainImageView.frame;
 }

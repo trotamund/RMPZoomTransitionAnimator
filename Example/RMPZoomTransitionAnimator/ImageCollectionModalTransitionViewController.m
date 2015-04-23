@@ -36,7 +36,7 @@
 
 #pragma mark - <RMPZoomTransitionAnimating>
 
-- (UIImageView *)transitionSourceImageView
+- (UIView *)transitionSourceView
 {
     NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
     ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:selectedIndexPath];
@@ -53,7 +53,7 @@
     return self.collectionView.backgroundColor;
 }
 
-- (CGRect)transitionDestinationImageViewFrame
+- (CGRect)transitionDestinationViewFrame
 {
     NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
     ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:selectedIndexPath];

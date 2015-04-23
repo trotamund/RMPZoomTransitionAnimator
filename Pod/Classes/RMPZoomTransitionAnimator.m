@@ -62,16 +62,16 @@ static const NSTimeInterval kBackwardCompleteAnimationDuration = 0.18;
     [containerView addSubview:alphaView];
     
     // Transition source of image to move me to add to the last
-    UIImageView *sourceImageView = [self.sourceTransition transitionSourceImageView];
-    [containerView addSubview:sourceImageView];
+    UIView *sourceView = [self.sourceTransition transitionSourceView];
+    [containerView addSubview:sourceView];
     
     if (self.goingForward) {
         [UIView animateWithDuration:kForwardAnimationDuration
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             sourceImageView.frame = [self.destinationTransition transitionDestinationImageViewFrame];
-                             sourceImageView.transform = CGAffineTransformMakeScale(1.02, 1.02);
+                             sourceView.frame = [self.destinationTransition transitionDestinationViewFrame];
+                             sourceView.transform = CGAffineTransformMakeScale(1.02, 1.02);
                              alphaView.alpha = 0.9;
                          }
                          completion:^(BOOL finished) {
@@ -80,10 +80,10 @@ static const NSTimeInterval kBackwardCompleteAnimationDuration = 0.18;
                                                  options:UIViewAnimationOptionCurveEaseOut
                                               animations:^{
                                                   alphaView.alpha = 0;
-                                                  sourceImageView.transform = CGAffineTransformIdentity;
+                                                  sourceView.transform = CGAffineTransformIdentity;
                                               }
                                               completion:^(BOOL finished) {
-                                                  sourceImageView.alpha = 0;
+                                                  sourceView.alpha = 0;
                                                   [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                                               }];
                          }];
@@ -93,7 +93,7 @@ static const NSTimeInterval kBackwardCompleteAnimationDuration = 0.18;
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             sourceImageView.frame = [self.destinationTransition transitionDestinationImageViewFrame];
+                             sourceView.frame = [self.destinationTransition transitionDestinationViewFrame];
                              alphaView.alpha = 0;
                          }
                          completion:^(BOOL finished) {
@@ -101,7 +101,7 @@ static const NSTimeInterval kBackwardCompleteAnimationDuration = 0.18;
                                                    delay:0
                                                  options:UIViewAnimationOptionCurveEaseOut
                                               animations:^{
-                                                  sourceImageView.alpha = 0;
+                                                  sourceView.alpha = 0;
                                               }
                                               completion:^(BOOL finished) {
                                                   [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
